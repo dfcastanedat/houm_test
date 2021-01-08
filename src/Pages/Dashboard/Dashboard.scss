@@ -4,8 +4,52 @@
   width: 100vw;
   height: 90vh;
   display: flex;
+  flex-direction: column;
   &.loading {
     align-items: center;
     justify-content: center;
+  }
+}
+
+.dashboard__search {
+  width: 100vw;
+  height: 7vh;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard__cards {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 15px 20px;
+  grid-template-areas: ". . . . .";
+}
+
+.darshboard__input {
+  height: 33px;
+  border-radius: 25px;
+  border: 0.5px solid black;
+  width: 30%;
+  padding: 0 25px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 20px;
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+@include screen-small {
+  .dashboard__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 30px 25px;
+    grid-template-areas: ". .";
   }
 }
