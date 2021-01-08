@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { getSearchText } from './Redux/Selectors';
+import { addItem } from './Redux/Actions';
+import RouterIndex from './Routes/RouterIndex';
+import Header from './Pages/Shared/Header/Header';
 
 function App() {
+
+  const [state] = useState(useSelector(getSearchText));
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log(state);
+    dispatch(addItem("XD"))
+  }, [state, dispatch])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <RouterIndex />
+    </>
   );
 }
 
