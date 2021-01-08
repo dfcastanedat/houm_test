@@ -7,12 +7,24 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
+    fetchData();
   }, []);
 
+  const fetchData = () => {
+    setLoading(true);
+  };
+
   return (
-    <div className="dashboard loading">
-      <LoadingPokeball />
-    </div>
+    <>
+      {loading ? (
+        <div className="dashboard loading">
+          <LoadingPokeball />
+        </div>
+      ) : (
+        <div className="dashboard">
+          <h1>CARGÓ ÑERO</h1>
+        </div>
+      )}
+    </>
   );
 }
