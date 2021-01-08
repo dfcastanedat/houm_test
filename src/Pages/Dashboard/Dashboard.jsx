@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Dashboard.scss";
 import LoadingPokeball from "../Shared/LoadingPokeball/LoadingPokeball";
+import axios from "axios";
 
 export default function Dashboard() {
   const [pokemons, setPokemons] = useState({});
@@ -12,6 +13,9 @@ export default function Dashboard() {
 
   const fetchData = () => {
     setLoading(true);
+    axios({
+      method: "GET",
+    });
   };
 
   return (
